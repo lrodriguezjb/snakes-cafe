@@ -9,7 +9,7 @@ print("**                                  **")
 print('** To quit at any time, type "quit" **')
 print("*" * 38)
 
-# Menu Dictionaries ----------------------
+# Menu Dictionaries ----------------------------------------------------------------------
 
 appetizers = {"wings": 0, "cookies": 0, "spring rolls": 0}
 
@@ -24,7 +24,7 @@ desserts = {"ice cream": 0, "cake": 0, "pie": 0}
 
 drinks = {"coffee": 0, "tea": 0, "unicorn tears": 0}
 
-# -------------------
+# ------------------------------------------------------------------------------------
 
 # Menu Layout by Iterating through each key in dictionary and printing a formatted capitalized version of the key onto screen
 print("Appetizers\n--------")
@@ -51,7 +51,8 @@ print("*" * 38)
 print("**   What would you like to order?  **")
 print("*" * 38)
 
-# -----------------------------
+# ------------------------------------------------------------------------------------
+finaloutput = []
 
 
 def orderinput():
@@ -66,29 +67,34 @@ def orderinput():
         answer = answer.lower()
         if answer in appetizers:
             appetizers[answer] += 1
+            finaloutput.append(answer)
             print(
                 f"** {appetizers[answer]} order of {answer} have been added to your meal**"
             )
             print(addmore)
         if answer in entrees:
             entrees[answer] += 1
+            finaloutput.append(answer)
             print(
                 f"** {entrees[answer]} order of {answer} have been added to your meal**"
             )
             print(addmore)
         if answer in desserts:
             desserts[answer] += 1
+            finaloutput.append(answer)
             print(
                 f"** {desserts[answer]} order of {answer} have been added to your meal**"
             )
             print(addmore)
         if answer in drinks:
             drinks[answer] += 1
+            finaloutput.append(answer)
             print(
                 f"** {drinks[answer]} order of {answer} have been added to your meal**"
             )
             print(addmore)
         if answer == "quit":
+            print(f"The Items you Ordered are: {', '.join(finaloutput).capitalize()}")
             print(f"Thank you for ordering! Bye-Bye!")
             sys.exit()
 
